@@ -2,11 +2,13 @@
 using namespace std;
 
 int main(){
-    int n,i,key = 0;
-    int a[100];
+    int n, i, key = 0;
+    
     cout<< "enter the total elements in an array";
     cin>> n;
 
+    int a[n];
+    
     cout<<"enter the elements of an array";
     for (int j = 0; j<n; j++){
         cin>>a[j];
@@ -14,6 +16,7 @@ int main(){
     
     cout<<"enter number which you want to found in array";
     cin>> key;
+
     for (i=0; i<n; i++){
         if(a[i] == key){
             cout<<"number " << key << " is found at index at "<< i;
