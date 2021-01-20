@@ -38,7 +38,7 @@ int main(){
     cout << "enter number which you want to found in array";
     cin >> key;
 
-    //return binary function output
+    //return binary function outpu.0t
     cout << binary_search(a, n, key) << endl;
 
     return 0;

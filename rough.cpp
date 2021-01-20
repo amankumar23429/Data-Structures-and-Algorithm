@@ -1,31 +1,22 @@
 #include<iostream>
 using namespace std;
-
-void bubble_sort(int a[], int n){
-
-    for(int i = 0; i<n-1; i++){
-        for(int j = 1; j<n-i; j++){
-            if (a[j]<a[j-1]){
-                int temp = a[j];
-                a[j]= a[j-1];
-                a[j-1] = temp;
-            }
-        }
-    }
-}
-
 int main(){
-    int n;
-    cin>>n;
-    int a[n];
-    for(int i = 0; i<n; i++){
-        cin>>a[i];
+    int i,j,a,x,b,z;
+    cin>>a;
+    cin>>b;
+    for(i=1;i<=a;i++){ 
+        x=a-i+1;
+        for(j=1;j<=b;j++){
+            z=x+2*(i-1);  
+      
+            if((j==x)||(j==z))
+                cout<<"*";
+       
+            else
+                cout<<" ";
+            if(j==z)
+            x=x+2*(a-2)+2;
+         
+        } cout<<endl; 
     }
-    
-    bubble_sort(a, n);
-
-    for(int i = 0; i<n; i++){
-        cout << a[i] << " ";
-    }
-    return 0;
 }

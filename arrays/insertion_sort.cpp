@@ -1,31 +1,35 @@
 #include<iostream>
 using namespace std;
 
-void insertion_sort(int a[], int n){
-    for (int i = 0; i<n; i++){
-        int current = a[i];
+void insertion_sort(int arr[], int n){
+    
+    for(int i = 1; i < n; i++){
+        int e = arr[i];
         int j = i-1;
-        while(current<a[j] && j>=0){
-            a[j+1] = a[j];
-            j--;
+
+        while(arr[j] > e and j >= 0){
+            arr[j+1] = arr[j];
+            j = j-1;
         }
-        a[j+1]= current;
+        arr[j+1] = e;
     }
 }
 
 int main(){
-    int n =0;
-    cin>>n;
-    int a[n];
+    int a[100] = {0};
+    int n = 0;
 
-    for (int i = 0; i<n; i++){
+    cin>>n;
+
+    for(int i=0; i<n; i++){
         cin>>a[i];
     }
 
-    insertion_sort(a, n);
-     
-    for (int j = 0; j<n; j++){
-        cout<<a[j]<<" ";
+    insertion_sort(a,n);
+
+    for(int i = 0; i<n; i++){
+        cout<<a[i]<<endl;
     }
+    
     return 0;
 }
