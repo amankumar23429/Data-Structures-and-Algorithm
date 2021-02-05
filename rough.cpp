@@ -1,22 +1,16 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
+
 int main(){
-    int i,j,a,x,b,z;
-    cin>>a;
-    cin>>b;
-    for(i=1;i<=a;i++){ 
-        x=a-i+1;
-        for(j=1;j<=b;j++){
-            z=x+2*(i-1);  
-      
-            if((j==x)||(j==z))
-                cout<<"*";
-       
-            else
-                cout<<" ";
-            if(j==z)
-            x=x+2*(a-2)+2;
-         
-        } cout<<endl; 
-    }
+    char c[100] = "hello";
+    int a[100] = {1,2,3,4};
+    // char *ch;
+    // ch = c;
+    // int * ptr = a;
+    // cout<<c[1]<<endl;
+    // cout<<ptr[3]<<endl;
+    cout<<a[-1];
+    
+    return 0;
 }
