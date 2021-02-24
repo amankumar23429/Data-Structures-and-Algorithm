@@ -1,16 +1,29 @@
 #include<iostream>
-#include<algorithm>
+#include<cstring>
+#define ll long long
 using namespace std;
 
-int main(){
-    char c[100] = "hello";
-    int a[100] = {1,2,3,4};
-    // char *ch;
-    // ch = c;
-    // int * ptr = a;
-    // cout<<c[1]<<endl;
-    // cout<<ptr[3]<<endl;
-    cout<<a[-1];
-    
-    return 0;
+
+class Temperature
+{
+	private:
+	float fahren, celsius;
+	public:
+	float conversion(float f)
+	{
+		fahren=f;
+		celsius=(fahren-32)* 5.0/9.0;
+		return celsius;
+	}
+	
+};
+int main()
+{
+	Temperature t;
+	float f;
+	cout<<"Enter Temperature in Fahrenheit=";
+	cin>>f;
+	cout<<"Temperature in Celsius="<<t.conversion(f);
+
+return 0;
 }
