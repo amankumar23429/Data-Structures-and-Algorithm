@@ -1,29 +1,15 @@
-#include<iostream>
-#include<cstring>
-#define ll long long
+#include <bits/stdc++.h>
 using namespace std;
 
-
-class Temperature
-{
-	private:
-	float fahren, celsius;
-	public:
-	float conversion(float f)
-	{
-		fahren=f;
-		celsius=(fahren-32)* 5.0/9.0;
-		return celsius;
+int main(){
+	vector <int> v = {1,23,4};
+	vector<pair<int, int>> v2;
+	v2.push_back(make_pair(1,0));
+	v2.push_back(make_pair(23,1));
+	v2.push_back(make_pair(4,2));
+	sort(v2.begin(), v2.end());
+	for(auto x:v2){
+		cout<<x.first<<" "<<x.second<<endl;
 	}
-	
-};
-int main()
-{
-	Temperature t;
-	float f;
-	cout<<"Enter Temperature in Fahrenheit=";
-	cin>>f;
-	cout<<"Temperature in Celsius="<<t.conversion(f);
-
-return 0;
+    return 0;
 }
