@@ -1,16 +1,16 @@
 #include<iostream>
 #include<stack>
-#include<vector>
 using namespace std;
 
 int max_area(int bar[], int n){
     stack<int> s;
     s.push(0);
 
-    vector<int> area;
+    int max_area = 0;
+    int area = 0;
+    int i;
 
-    for(int i = 1; i<n; i++){
-        
+    for(i = 1; i<n; i++){  
         if(bar[i] >= bar[s.top()]){
             s.push(i);
         }
@@ -19,22 +19,31 @@ int max_area(int bar[], int n){
                 int top = s.top();
                 s.pop();
                 if(s.empty()){
-                    int a = bar[top]*i;
-                    area.push_back(a);
+                    area = bar[top]*i;
                 }
                 else{
-                    int a = bar[top] * (i-s.top()-1);
-                    area.push_back(a);
+                    area = bar[top] * (i-s.top()-1);
                 }
+                max_area = max(area, max_area);
             }
             s.push(i);
-        }        
+        }
+        
     }
-    int arr = 0;
-    for(auto x:area){
-        arr = max(arr, x);
+
+    while(!s.empty()){
+        int top = s.top();
+        s.pop();
+        if(s.empty()){
+            area = bar[top]*i;
+        }
+        else{
+            area = bar[top] * (i-s.top()-1);
+        }
+        max_area = max(area, max_area);
     }
-    return arr;
+
+    return max_area;
 }
 
 int main(){
