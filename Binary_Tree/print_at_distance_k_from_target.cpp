@@ -16,17 +16,17 @@ class node{
     }
 };
 
-node* bulidTree(){
-    int d;
-    cin>>d;
-    if(d==-1){
-        return NULL;
-    }
-    node* root = new node(d);
-    root->left = bulidTree();
-    root->right = bulidTree();
-    return root;
-}
+// node* bulidTree(){
+//     int d;
+//     cin>>d;
+//     if(d==-1){
+//         return NULL;
+//     }
+//     node* root = new node(d);
+//     root->left = bulidTree();
+//     root->right = bulidTree();
+//     return root;
+// }
 
 void levelOrderBuild(node*&root){
     int d;
@@ -51,34 +51,34 @@ void levelOrderBuild(node*&root){
     }
 }
 
-void levelOrderPrint(node* root){
-    queue<node*> q;
-    q.push(root);
-    q.push(NULL);
+// void levelOrderPrint(node* root){
+//     queue<node*> q;
+//     q.push(root);
+//     q.push(NULL);
 
-    while(!q.empty()){
-        node* r = q.front();
-        if(r==NULL){
-            cout<<endl;
-            q.pop();
-            if(!q.empty()){
-                q.push(NULL);
-            }
-        }
-        else{
-            cout<<r->data<<" ";
-            q.pop();
+//     while(!q.empty()){
+//         node* r = q.front();
+//         if(r==NULL){
+//             cout<<endl;
+//             q.pop();
+//             if(!q.empty()){
+//                 q.push(NULL);
+//             }
+//         }
+//         else{
+//             cout<<r->data<<" ";
+//             q.pop();
 
-            if(r->left){
-                q.push(r->left);
-            }
-            if(r->right){
-                q.push(r->right);
-            }
-        }
-    }
-    return;
-}
+//             if(r->left){
+//                 q.push(r->left);
+//             }
+//             if(r->right){
+//                 q.push(r->right);
+//             }
+//         }
+//     }
+//     return;
+// }
 
 void printAtLevelK(node* root, int k){
     if(root==NULL){

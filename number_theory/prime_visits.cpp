@@ -25,7 +25,6 @@ void prime_sieve(int *arr){
 
 int main(){
     
-    
     prime_sieve(arr);
 
     int num = 0;
@@ -34,13 +33,11 @@ int main(){
         cs[i] = num;
     }
 
-
     int q;
     cin>>q;
     for(int i = 0; i<q; i++){
         int a,b;
         cin>>a>>b;
-
         cout<<cs[b]-cs[a-1]<<endl;
     }
     return 0;
