@@ -35,13 +35,13 @@ void print(node* root){
     print(root->right);
 }
 
-void printIn(node* root){
+void printInorder(node* root){
     if(root==NULL){
         return;
     }
-    printIn(root->left);
+    printInorder(root->left);
     cout<<root->data<<" ";
-    printIn(root->right);
+    printInorder(root->right);
 }
 
 void printPost(node* root){
@@ -59,7 +59,7 @@ int main() {
     print(root);
     cout<<endl;
 
-    printIn(root);
+    printInorder(root);
     cout<<endl;
 
     printPost(root);
