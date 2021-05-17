@@ -11,6 +11,14 @@ int main(){
     price_menu.insert("Pasta", 40);
 
     price_menu.print();
+    // int* price = price_menu.search("Pepsi");
+    // if(price==NULL){
+    //     cout<<"Not found"<<endl;
+    // }else{
+    //     cout<<*price<<endl;
+    // }
+    price_menu.erase("Pepsi");
+    price_menu.print();
     return 0;
 }
 
