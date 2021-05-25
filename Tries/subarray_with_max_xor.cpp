@@ -78,10 +78,9 @@ class Trie{
     }
 };
 
-
 int main(){
     int input[] = {3,10,5,25,2,8};
-    int commulative_xor[6]  ={0};
+    int commulative_xor[6] = {0};
     int n = sizeof(input)/sizeof(int);
     int current_xor = input[0];
     commulative_xor[0] = current_xor;

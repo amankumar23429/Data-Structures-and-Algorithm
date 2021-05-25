@@ -61,7 +61,7 @@ class Trie{
 int main(){
     Trie t;
     char words[][10] = {"cobra","dog", "dove", "duck"};
-    for(int i = 0; i<5;i++){ 
+    for(int i = 0; i<4;i++){ 
         t.insert(words[i]);
     }
     
