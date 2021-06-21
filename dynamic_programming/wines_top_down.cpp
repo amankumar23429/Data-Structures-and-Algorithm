@@ -48,6 +48,6 @@ int main(){
     int wines[] = {2, 3, 5};
     int n = sizeof(wines)/sizeof(int);
     int dp[100][100] = {0};
-    cout<<max_profit_bottomUp(wines, n);
+    cout<<maximize_profit(wines, 0, 0, n, dp);
     return 0;
 }
