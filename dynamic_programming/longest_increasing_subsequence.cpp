@@ -1,6 +1,4 @@
-#include<iostream>
-#include<climits>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 int lis_bottom_up(int *arr, int n){
@@ -25,13 +23,21 @@ int lis_optimized(int *arr, int n){
         dp[i] = INT_MAX;
     }
 
+    // for(int i = 0; i<n; i++){
+    //     for(int j = 0; j<n; j++){
+    //         if(dp[j]>arr[i] and arr[i]<dp[j+1]){
+    //             dp[j+1] = arr[i];
+    //         }
+    //     }
+    // }
+
     for(int i = 0; i<n; i++){
-        for(int j = 0; j<n; j++){
-            if(dp[j]>arr[i] and arr[i]<dp[j+1]){
-                dp[j+1] = arr[i];
-            }
+        int length = upper_bound(dp, dp+n+1, arr[i]) - dp;
+        if(dp[length-1]<arr[i] and dp[length]>arr[i]){
+            dp[length] = arr[i];
         }
     }
+    
     int lis = 1;
     for(int j = 1; j<n; j++){
         if(dp[j]!=INT_MAX){
