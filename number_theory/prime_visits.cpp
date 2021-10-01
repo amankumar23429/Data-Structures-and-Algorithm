@@ -20,13 +20,10 @@ void prime_sieve(int *arr){
     }
     arr[2] = 1;
     arr[0] = arr[1] = 0;
-
 }
 
 int main(){
-    
     prime_sieve(arr);
-
     int num = 0;
     for(int i = 1; i<=1000000; i++){
         num += arr[i];

@@ -10,7 +10,7 @@ int main(){
     cin>>t;
     while(t--){ 
         cin>>width>>height>>towers;
-        int x, y;
+        int x, y;   
         for(int i = 0; i<towers; i++){
             cin>>x>>y;
             v_x.push_back(x);

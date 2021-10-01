@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-
+// this code only valid for positive numbers 
+//for both negative and positive number refer to leetcode repository single_numberII.cpp
 int main(){
     
     int n,no;

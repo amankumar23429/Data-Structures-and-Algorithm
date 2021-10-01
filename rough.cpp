@@ -1,53 +1,42 @@
-#include <iostream>
-#include<algorithm>
-#include<vector>
-#include<climits>
-#define ll long long
+#include <bits/stdc++.h>
 using namespace std;
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define ll long long int
+#define MOD 1000000007
+#define endl "\n"
+#define test() ll t; cin>>t; while(t--)
+#define ordered_set tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update>
 
-int main(){
-    int c;
-    cin>>c;
-    int n = 1;
-    while((n*(n+1))/2<c){
-        n++;
-    }
-    cout<<n<<endl;
-    return 0;
+bool compare(ll a,ll b){
+	return a<b;
 }
 
-// int main(){
-//     ll t;
-//     cin>>t;
-    
-//     for(int i = 0; i<t; i++){
-//         ll n, k;
-//         cin>>n>>k;
-//         ll arr[n];
-        
-//         for(int j = 0; j<n; j++){
-//             cin>>arr[j];
-//         }
-        
-//         sort(arr,arr+n, greater<>());
-//         ll prev = INT_MIN;
-//         ll ans = 0;
-//         ll j = 0;
-//         ll max_element = arr[0];
-//         while((arr[j]>0 and j<n and k>0) or prev==arr[j]){
-//             ans+=arr[j];
-//             if(prev!=arr[j]){
-//                 k--;
-//             }
-//             prev = arr[j];
-//             j++;
-//         }
-//         if(ans==0){
-//             cout<<max_element<<endl;
-//         }
-//         else{
-//             cout<<ans<<endl;
-//         }
-//     }
-//     return 0;
-// }
+bool isSorted(int a[], int n){
+	if(n==1){
+		return true;
+	}
+	if(a[0]<a[1]){
+		return isSorted(a+1,n-1);
+	}
+	return false;
+}
+int main (){
+//#ifndef ONLINE_JUDGE
+//    freopen("input.txt","r",stdin);
+//    freopen("output.txt","w",stdout);
+//#endif
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);  
+	//test(){
+		ll n;
+		cin>>n;
+		int a[100];
+		for(ll i = 0; i<n; i++){
+			cin>>a[i];
+		}
+		cout<<isSorted(a,n);
+	//}
+	return 0;
+}
