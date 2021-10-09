@@ -1,42 +1,47 @@
 #include <bits/stdc++.h>
+
 using namespace std;
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
-#define ll long long int
-#define MOD 1000000007
-#define endl "\n"
-#define test() ll t; cin>>t; while(t--)
-#define ordered_set tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update>
 
-bool compare(ll a,ll b){
-	return a<b;
-}
+/*
+ * Complete the 'timeConversion' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
 
-bool isSorted(int a[], int n){
-	if(n==1){
-		return true;
-	}
-	if(a[0]<a[1]){
-		return isSorted(a+1,n-1);
-	}
-	return false;
-}
-int main (){
-//#ifndef ONLINE_JUDGE
-//    freopen("input.txt","r",stdin);
-//    freopen("output.txt","w",stdout);
-//#endif
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);  
-	//test(){
-		ll n;
-		cin>>n;
-		int a[100];
-		for(ll i = 0; i<n; i++){
-			cin>>a[i];
-		}
-		cout<<isSorted(a,n);
-	//}
-	return 0;
+class Solution {
+public:
+    set<string> ans;
+	
+    void count_sub(string s, int i, int j, char* out){
+        if(i==s.size()){
+            out[j] = '\0';
+			string as = out;
+            ans.insert(as);
+            return;
+        }
+        out[j] = s[i];
+        count_sub(s, i+1, j+1, out);
+        count_sub(s, i+1, j, out);
+		return;
+    }
+    
+    int distinctSubseqII(string s) {
+		char output[2000];
+		count_sub(s, 0, 0, output);
+		// for(auto p:ans)
+		// cout<<p<<endl;
+		// cout<<ans.size()<<endl;
+		return ans.size()-1;
+    }
+};
+
+int main(){
+    string s;
+	cin>>s;
+
+	Solution as;
+	cout<<as.distinctSubseqII(s);
+
+    return 0;
 }

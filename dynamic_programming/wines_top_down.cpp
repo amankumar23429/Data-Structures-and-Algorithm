@@ -16,38 +16,10 @@ int maximize_profit(int *wines, int i, int j, int y, int dp[][100]){
     return profit;
 }
 
-int max_profit_bottomUp(int* wines, int n){
-    int dp[n][n] = {0};
-    int i = 0;
-    int j = 0;
-    while(i<n and j<n){
-        dp[i][j] = wines[i] * n;
-        i++;
-        j++;
-    }
-
-    for(int k = 1; k<n; k++){
-        i=0;
-        j=k;
-        while(i<n and j<n){
-            int m = INT_MIN;
-            int op1 = wines[i]*(j-i+1) + dp[j][j];
-            int op2 = wines[i+1]*(j-i+1) + dp[j-1][j-1];
-            m = max(op1, op2);
-            //cout<<dp[j][j]<< " "<<dp[j-1][j-1]<<endl;
-            cout<<op1<< " "<<op2<<endl;
-            dp[i][j] = m;
-            i++;
-            j++;
-        }
-    }
-    return dp[0][1];
-}
-
 int main(){
-    int wines[] = {2, 3, 5};
+    int wines[] = {2, 3, 5, 1, 4};
     int n = sizeof(wines)/sizeof(int);
     int dp[100][100] = {0};
-    cout<<maximize_profit(wines, 0, 0, n, dp);
+    cout<<maximize_profit(wines, 0,n-1, 1, dp);
     return 0;
 }
