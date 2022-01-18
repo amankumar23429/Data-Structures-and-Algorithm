@@ -27,6 +27,12 @@ int minPathSum(vector<vector<int>>& grid) {
             }
         }
     }
+    for(auto p:res){
+        for(auto q:p){
+            cout<<q<<" ";
+        }
+        cout<<endl;
+    }
     return res[0][0];
 }
 
