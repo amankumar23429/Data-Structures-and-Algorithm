@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-bool dfs_helper(vector<int> graph[], int node, int*visited, int parent, int color){
+bool dfs_helper(vector<int> graph[], int node, int* visited, int parent, int color){
     visited[node] = color;
     for(auto nbr:graph[node]){
         if(visited[nbr]==0){

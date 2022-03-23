@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool dfs(vector<int> graph[], int i, bool *visited, vector<int> &stack){
+void dfs(vector<int> graph[], int i, bool *visited, vector<int> &stack){
     visited[i] = true;
     for(auto nbr:graph[i]){
         if(visited[nbr]==false){
@@ -11,7 +11,7 @@ bool dfs(vector<int> graph[], int i, bool *visited, vector<int> &stack){
     stack.push_back(i);
 }
 
-bool dfs2(vector<int> graph[], int i, bool *visited){
+void dfs2(vector<int> graph[], int i, bool *visited){
     visited[i] = true;
     cout<<i<<" ";
     for(auto nbr:graph[i]){
@@ -31,8 +31,7 @@ void solve(vector<int> graph[], vector<int> reverse_graph[], int n){
             dfs(graph, i, visited, stack);
         }
     }
-
-    // step 2- reverse the graph 
+    // step 2- reverse the graph
 
     // step 3- do dfs according to ordering given in the stack
     char component_name = 'A';
