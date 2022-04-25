@@ -2,6 +2,7 @@
 #include<list>
 using namespace std;
 
+
 class Graph{
     int V;
     list<int> *l;

@@ -1,74 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
 #define ll long long int
-#define MOD 1000000007
-#define endl "\n"
-#define test() ll t; cin>>t; while(t--)
-#define ordered_set tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update>
-ll n1 = 1000000;
-vector<ll> v1(n1+1);
-vector<ll> v2(n1+5);
-bool compare(ll a,ll b){
-    return a<b;
+
+int turnPigeons(string A){
+    int ans = 0;
+    char prev = 'a';
+    int cnt = 0;
+    int n = A.size();
+    vector<int> r(n, 0);
+    vector<int> l(n, 0);
+    for(int i = 0; i<A.size(); i++){
+        if(i>0){
+            r[i] = r[i-1];
+        }
+        if(A[i]=='R'){
+            r[i]++;
+        }
+    }
+    for(int i = n-1; i>=0; i--){
+        if(i!=n-1){
+            l[i] = l[i+1];
+        }
+        if(A[i]=='L'){
+            l[i]++;
+        }
+    }
+    int min_num = 100000000;
+    for(int i = 0; i<A.size(); i++){
+        //cout<<l[i]<<" "<<r[i]<<endl;
+        min_num = min(min_num, l[i]+r[i]-1);
+    }
+    // min_num = min(r[n-1], min_num);
+    // min_num = min(l[0], min_num);
+    
+    return min_num;
 }
-ll gcd(ll a, ll b){
-    return b==0?a:gcd(b, a%b);
-}
- 
 int main (){
-//#ifndef ONLINE_JUDGE
-//    freopen("input.txt","r",stdin);
-//    freopen("output.txt","w",stdout);
-//#endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    ll cnt = 0;
-    v1[0] = 0;
-    for(ll i = 1; i<=n1; i++){
-        v1[i] = v1[i-1];
-        ll product = 1;
-        ll sum = 0;
-        string temp = to_string(i);
-        for(auto p:temp){
-            product*=(p-'0');
-            sum+=(p-'0');
-        }
-        if(product%sum==0){
-            v1[i]++;
-        }
-    }
-    // v2[0] = v1[n1];
-    // for(ll i = n1+1; i<=1000000000000; i++){
-    //     // v2[i-n1] = v2[i-n1-1];
-    //     // ll product = 1;
-    //     // ll sum = 0;
-    //     // string temp = to_string(i);
-    //     // for(auto p:temp){
-    //     //     product*=(p-'0');
-    //     //     sum+=(p-'0');
-    //     // }
-    //     // if(product%sum==0){
-    //     //     v2[i-n1]++;
-    //     // }
-    // }
-    test(){
-        cnt++;
-        ll a,b;
-        cin>>a>>b;
-        if(b<=n1){
-            cout<<"Case #"<<cnt<<": "<<v1[b]-v1[a-1]<<endl;
-        }
-        else{
-            if(a>=n1){
-                cout<<"Case #"<<cnt<<": "<<v2[b-n1]-v2[a-n1-1]<<endl;
-            }
-            else{
-                cout<<"Case #"<<cnt<<": "<<v2[b-n1]-v1[a-1]<<endl;
-            }
-        }
-    }
+    string s;
+    cin>>s;
+    cout<<turnPigeons(s);
     return 0;
 }
