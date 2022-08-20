@@ -1,1 +1,0 @@
-{"name":"Local: record_breaker_day","url":"c:\\Users\\Asus\\Documents\\CodingBlocksC++\\record_breaker_day.cpp","tests":[{"id":1612072184186,"input":"8\n1 2 0 7 2 0 2 2","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Asus\\Documents\\CodingBlocksC++\\record_breaker_day.cpp","group":"local","local":true}

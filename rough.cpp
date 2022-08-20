@@ -27,7 +27,8 @@ int turnPigeons(string A){
     }
     int min_num = 100000000;
     for(int i = 0; i<A.size(); i++){
-        //cout<<l[i]<<" "<<r[i]<<endl;
+        //cout<<l[i]<<" "<<r[i]<<endl;gfkltt;t
+        //klrptlkttr
         min_num = min(min_num, l[i]+r[i]-1);
     }
     // min_num = min(r[n-1], min_num);
@@ -38,6 +39,6 @@ int turnPigeons(string A){
 int main (){
     string s;
     cin>>s;
-    cout<<turnPigeons(s);
+    cout<<s;
     return 0;
 }
